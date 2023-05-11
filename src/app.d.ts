@@ -9,10 +9,15 @@ declare global {
 	}
 }
 declare class Product {
-	id: string    // Stripe IDN
+
 	Name: string  // "Coffee"
 	Price: number // 5
 	Thumbnail:string
+	 id: string;
+	
 }
-
+declare class CartItem {
+	id: string
+	quantity: number
+}
 

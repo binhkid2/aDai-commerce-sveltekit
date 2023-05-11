@@ -2,9 +2,6 @@
   /** @type {import('./$types').PageData} */
   export let data : any;
 
-   
-   
-        console.log(data)
    </script>
    <div>
     {#each data.products as product}

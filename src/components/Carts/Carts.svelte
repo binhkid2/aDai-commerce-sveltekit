@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { get } from 'svelte/store';
-	import { cartItems, addToCart, removeFromCart } from '../../cart';
+	import { cartItems, addToCart, removeFromCart, DeleteCart } from '../../cart';
 	export let product: Product = { id: '', Name: '', Price: 0, Thumbnail: '' };
 	let cart = get(cartItems); // [ { id: "1", quantity: 6 }, { id: "2", quantity: 3 } ]
 	// id: "1"
@@ -32,6 +32,9 @@
 			>
 			<button class="p-2 rounded variant-glass-error" on:click={() => removeFromCart(product.id)}
 				>Remove</button
+			>
+            <button class="p-2 rounded variant-glass-error" on:click={() => DeleteCart(product.id)}
+				>Delete</button
 			>
 		</footer>
 	{/if}

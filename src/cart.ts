@@ -61,3 +61,19 @@ export const removeFromCart = (id: string) => {
         return updatedItems;
     });
 }
+export const DeleteCart = (id: string) => {
+    let items = get(cartItems);
+    let itemPosition = items.findIndex(
+        (item) => { return item.id == id} // does the current item have an id of "1"?
+    )
+    items.splice(itemPosition, 1);
+    cartItems.update(() => {
+        // items: [ { id: "1", quantity: 6 }, { id: "2", quantity: 3 } ]
+        // updatedItems: [{ id: "1", quantity: 5 }, { id: "2", quantity: 3 } ]
+        let updatedItems = items.map( (item) => {
+            return item;
+        });
+
+        return updatedItems;
+    });
+}

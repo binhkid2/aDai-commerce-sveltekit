@@ -1,7 +1,19 @@
-// React Context
-import { writable, get } from "svelte/store";
 
-export const cartItems = writable<CartItem[]>([]);
+import { writable, get } from "svelte/store";
+import { browser } from '$app/environment';
+
+const initialValue = browser ? JSON.parse(window.localStorage.getItem('cartItems')) || [] : [];
+
+export const cartItems = writable(initialValue);
+
+cartItems.subscribe((value) => {
+	if (browser) {
+		window.localStorage.setItem('cartItems', JSON.stringify(value));
+	}
+});
+
+export default cartItems;
+
 // [ { id: "1", quantity: 4 }, { id: "2", quantity: 1 } ] 
 
 // add to cart (add one)

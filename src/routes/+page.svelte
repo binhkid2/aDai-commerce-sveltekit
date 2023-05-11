@@ -12,5 +12,6 @@
     {#each products as product}
     <Products  {product}/>
     {/each}
+    <a href="checkout">CheckOut</a>
    </div>
    

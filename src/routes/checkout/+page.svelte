@@ -39,12 +39,13 @@
         Gross Quantity simple: {cart.length}
       </div>
     <div class="card-body px-4">
-      Gross Price: ${grossPrice}
+      Gross Price: ${grossPrice} <!--  add [.toFixed(2)] if work with dolar $ -->
     </div>
-    
+   
   </div>
   
   <style>
   /* Add your custom styles here */
+ 
   </style>
   

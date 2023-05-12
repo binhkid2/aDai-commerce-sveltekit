@@ -21,19 +21,23 @@
 </script>
 
 
-<div class="card">
-    <header class="card-header"><h2>{product.title}</h2></header>
-	<img class="img" alt={product.title} src={product.image}/>
+<div>
+	
+    <header ><h2>{product.title}</h2></header>
+
+	
+		<img class="img"  alt={product.title} src={product.image}/>
+	
     {#if cartProduct !== undefined}
-        <div class="card-body px-4">
+        <div >
             Quantity: <strong>{cartProduct.quantity}</strong>
         </div>
     {/if}
-    <div class="card-body px-4">
+    <div>
         Price: ${product.price}
     </div>
-    <footer class="card-footer">
-        <button class="p-2 rounded variant-glass-primary" on:click={() =>  addToCart(product.id,totalPrice,price)}>Buy Now</button>
+    <footer >
+        <button on:click={() =>  addToCart(product.id,totalPrice,price)}>Buy Now</button>
     </footer>
 </div>
 <style>

@@ -8,7 +8,7 @@
 		return item.id === product.id;
 	});
 	let cartProduct = cart[cartItemIndex];
-	let price = product.price;
+	let price=product.price;
 	let totalPrice: number = cartProduct ? cartProduct.quantity * product.price : 0;
 	cartItems.subscribe((newCartValue) => {
 		cart = newCartValue;
@@ -20,30 +20,29 @@
 	});
 </script>
 
-<div >
-	{#if cartProduct !== undefined}
-		<header ><h2>{product.title}</h2></header>
-		<div >
-			Quantity: <strong>{cartProduct.quantity}</strong>
-		</div>
-		<div >
-			Price: ${product.price}
-		</div>
-		<div >
-			Total Price: ${totalPrice}
-		  </div>
-		 
-					
-		<footer>
-			<button  on:click={() => addToCart(product.id,totalPrice,price)}
-				>Add</button
-			>
-			<button  on:click={() => removeFromCart(product.id)}
-				>Remove</button
-			>
-			<button  on:click={() => DeleteCart(product.id)}
-				>Delete</button
-			>
-		</footer>
-	{/if}
+
+<div>
+	<a href={`/product/${product.id}`}>
+    <header ><h2>{product.title}</h2></header>
+</a>
+	<a href={`/product/${product.id}`}>
+		<img class="img"  alt={product.title} src={product.image}/>
+	</a>
+    {#if cartProduct !== undefined}
+        <div >
+            Quantity: <strong>{cartProduct.quantity}</strong>
+        </div>
+    {/if}
+    <div>
+        Price: ${product.price}
+    </div>
+    <footer >
+        <a href={`/product/${product.id}`}>Buy Now</a>
+    </footer>
 </div>
+<style>
+	img{
+		max-width: 200px;
+		max-height: 200px;
+	}
+</style>

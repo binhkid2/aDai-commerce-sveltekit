@@ -10,14 +10,18 @@ declare global {
 }
 declare class Product {
 
-	Name: string  // "Coffee"
-	Price: number // 5
-	Thumbnail:string
+	title: string  // "Coffee"
+	price: number // 5
+	image:string
 	 id: string;
-	
+	 description:string
+	 category:string
 }
 declare class CartItem {
 	id: string
 	quantity: number
+	price:number
+	totalPrice:number
+	
 }
 

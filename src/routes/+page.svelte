@@ -6,10 +6,10 @@
   import Products from "../components/Products/Products.svelte";
    </script>
    <div>
-    {#each products as product}
+    {#each products as product (product.id)}
     <Carts  {product}/>
     {/each}
-    {#each products as product}
+    {#each products as product  (product.id)}
     <Products  {product}/>
     {/each}
     <a href="checkout">CheckOut</a>

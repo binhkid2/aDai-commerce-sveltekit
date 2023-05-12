@@ -4,10 +4,7 @@ import { browser } from '$app/environment';
 
 const cartItemsString = browser ? window.localStorage.getItem('cartItems') : null;
 const initialValue: CartItem[] = browser && cartItemsString ? JSON.parse(cartItemsString) : [];
-
-
 export const cartItems = writable(initialValue);
-
 cartItems.subscribe((value) => {
 	if (browser) {
 		window.localStorage.setItem('cartItems', JSON.stringify(value));
@@ -19,7 +16,8 @@ export default cartItems;
 // [ { id: "1", quantity: 4 }, { id: "2", quantity: 1 } ] 
 
 // add to cart (add one)
-export const addToCart = (id: string) => {
+export const addToCart = (id: string,
+	totalPrice:number,price:number) => {
     // cartItems is a writable, not a value
     // get(cartItems) ->  [ { id: "1", quantity: 6 }, { id: "2", quantity: 1 }, { id: "3", quantity: 1} ] 
     let items = get(cartItems);
@@ -44,7 +42,9 @@ export const addToCart = (id: string) => {
     } else {
         // Item is not in the cart at all, so add the object to the cart
         cartItems.update(() => {
-            return [ ...items, { id: id, quantity: 1} ]
+            return [ ...items, { id: id, quantity: 1,
+                totalPrice:totalPrice,price:price
+                } ]
         });
     }
 }

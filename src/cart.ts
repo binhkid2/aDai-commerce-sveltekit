@@ -2,7 +2,9 @@
 import { writable, get } from "svelte/store";
 import { browser } from '$app/environment';
 
-const initialValue = browser ? JSON.parse(window.localStorage.getItem('cartItems')) || [] : [];
+const cartItemsString = browser ? window.localStorage.getItem('cartItems') : null;
+const initialValue: CartItem[] = browser && cartItemsString ? JSON.parse(cartItemsString) : [];
+
 
 export const cartItems = writable(initialValue);
 

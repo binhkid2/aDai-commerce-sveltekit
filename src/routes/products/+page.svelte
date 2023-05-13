@@ -8,3 +8,6 @@ let  products:Product[] = data.products;
 <Products {product}/>
 {/each}
 </div>
+<style lang="postcss">
+    
+</style>

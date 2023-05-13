@@ -40,7 +40,7 @@
         <button on:click={() =>  addToCart(product.id,totalPrice,price)}>Buy Now</button>
     </footer>
 </div>
-<style>
+<style lang="postcss">
 	img{
 		max-width: 200px;
 		max-height: 200px;

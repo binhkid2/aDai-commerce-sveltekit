@@ -44,7 +44,7 @@
    
   </div>
   
-  <style>
+  <style lang="postcss">
   /* Add your custom styles here */
  
   </style>

@@ -40,7 +40,7 @@
         <a href={`/product/${product.id}`}>Buy Now</a>
     </footer>
 </div>
-<style>
+<style lang="postcss">
 	img{
 		max-width: 200px;
 		max-height: 200px;

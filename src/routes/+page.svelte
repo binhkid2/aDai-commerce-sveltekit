@@ -15,6 +15,5 @@
 <div><Collection /></div>
 <div><Banner /></div>
 <div><Social /></div>
-<div><Footer /></div>
 <style>
 </style>

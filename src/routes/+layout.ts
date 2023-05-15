@@ -1,14 +1,14 @@
 import { error } from '@sveltejs/kit';
-import { env } from '$env/dynamic/private';
+
 /** @type {import('./$types').PageLoad} */
 export async function load({ fetch }) {
-    const productsData = await fetch(`${env.SHEET}`);
+    const productsData = await fetch("https://fakestoreapi.com/products");
     const products = await productsData.json();
-    const productMensData = await  fetch(`${env.SHEET_MEN_CATEGORIES}`);
+    const productMensData = await  fetch("https://fakestoreapi.com/products/category/jewelery");
     const productsMens = await productMensData.json();
-    const productWommensData = await  fetch(`${env.SHEET_WOMMEN_CATEGORIES}`);
+    const productWommensData = await  fetch("https://fakestoreapi.com/products/category/electronics");
     const productWommens = await productWommensData.json();
-    const productUnisexData = await  fetch(`${env.SHEET_UNISEX_CATEGORIES}`);
+    const productUnisexData = await  fetch("https://fakestoreapi.com/products/category/jewelery");
     const productsUnisex =  await productUnisexData.json();
     return { products , productsMens,productWommens,productsUnisex};
 }

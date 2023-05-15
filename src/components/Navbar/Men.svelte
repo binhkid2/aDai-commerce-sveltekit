@@ -1,5 +1,5 @@
 <li class="hoverable hover:bg-gradient-to-r from-red-300 to-red-700 hover:text-white">
-  <a href="/products"> <div class="relative block py-6 px-4 lg:p-6 text-sm lg:text-base hover:bg-gradient-to-r from-red-300 to-red-700 hover:text-white">
+  <a href="/products" class="p-0"> <div class="relative block py-6 px-4 lg:p-6 text-sm lg:text-base hover:bg-gradient-to-r from-red-300 to-red-700 hover:text-white">
       Products
     </div></a>
     <div class="p-6 mega-menu mb-16 mt-16 sm:mb-0 shadow-xl bg-gradient-to-r from-red-300 to-red-700">

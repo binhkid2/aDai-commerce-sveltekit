@@ -6,10 +6,12 @@
       <div class="mx-auto">
         <div class="flex flex-col-reverse justify-center lg:flex-row">
           <div class="">
+            <!-- svelte-ignore a11y-missing-attribute -->
             <img
               src="https://tuk-cdn.s3.amazonaws.com/can-uploader/ec3.png"
               class="lg:block md:block hidden h-full"
             />
+            <!-- svelte-ignore a11y-missing-attribute -->
             <img
               src="https://tuk-cdn.s3.amazonaws.com/can-uploader/ec4.png"
               class="lg:hidden md:hidden block"

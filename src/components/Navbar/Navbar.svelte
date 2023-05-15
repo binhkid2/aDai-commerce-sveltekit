@@ -20,10 +20,9 @@
 		<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 		<ul class="menu menu-horizontal" tabindex="0">
 			<Men />
-			<Men />
-			<Men />
 			<li><a href="/about">About</a></li>
 			<li><a href="/contact">Contact</a></li>
+			<li><a href="/faq">FAQs</a></li>
 		</ul>
 	</div>
 	<div class="navbar-end">

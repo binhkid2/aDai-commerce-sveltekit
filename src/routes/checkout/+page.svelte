@@ -1,12 +1,10 @@
-<script lang="ts">
+ <script lang="ts">
     import { get } from "svelte/store";
-    import cartItems from "../../cart";
-    import Carts from "../../components/Carts/Carts.svelte";
+    import { cartItems, addToCart, removeFromCart, DeleteCart } from '../../cart';
+	import CartsTest from "../../components/Carts/CartsTest.svelte";
     /** @type {import('./$types').PageData} */
     export let data: any;
     const products: Product[] = data.products;
-   
-    
     let cart = get(cartItems);
     let grossPrice: number = cart.reduce((total, item) => {
       return total + (item.price * item.quantity);
@@ -26,26 +24,14 @@
       }, 0);
     });
   </script>
-  
-  <div>
+<!-- component -->
+<div class="grid grid-cols-1">
+    <h1 class="text-center my-6 font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900">Cart : {grossQuantity} Items</h1>
+    <p class="text-3xl my-6 m-auto text-center">Subtotal: ${grossPrice}</p>
+    <a href="/checkout2" class="m-auto text-center"><button class="btn bg-gradient-to-r from-blue-500 to-blue-900 border-0 rounded-lg m-auto text-center">Checkout</button></a>
+</div>
+<div class="relative p-10 max-w-6xl m-auto">
     {#each products as product}
-      <Carts {product} />
+   <CartsTest {product}/>
     {/each}
-    
-    <div class="card-body px-4">
-      Gross Quantity: {grossQuantity}
-    </div>
-    <div class="card-body px-4">
-        Gross Quantity simple: {cart.length}
-      </div>
-    <div class="card-body px-4">
-      Gross Price: ${grossPrice} <!--  add [.toFixed(2)] if work with dolar $ -->
-    </div>
-   
-  </div>
-  
-  <style >
-  /* Add your custom styles here */
- 
-  </style>
-  
+</div>

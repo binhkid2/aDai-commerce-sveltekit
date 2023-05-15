@@ -1,6 +1,9 @@
  <div class="grid grid-cols-1 justify-center p-10 items-center m-auto bg-red-400">
     <p class="text-center font-serif font-semibold text-3xl p-2 text-white">Want marketing updates ?</p>
-    <input placeholder="Enter email" class="text-center max-w-2xl m-auto rounded-lg p-2 shadow-lg" />
+    <div class="flex justify-center items-center space-x-4">
+      <input placeholder="Enter email" class="text-center max-w-2xl rounded-lg p-2 shadow-lg" />
+      <button class="bg-red-300 hover:bg-red-500 text-white font-bold py-2 px-4 rounded">Add</button>
+    </div>
 </div>
 <footer class="footer p-10 bg-base-200 text-base-content">
     <div>

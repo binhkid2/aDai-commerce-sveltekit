@@ -60,7 +60,7 @@
 
 <!-- Example
         <LazyImg
-        src_img="https://images.unsplash.com/photo-1683476448574-3f82395a03f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80"
+        src="https://images.unsplash.com/photo-1683476448574-3f82395a03f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80"
                     alt="banner"
                     width="1500"
                     height="380"

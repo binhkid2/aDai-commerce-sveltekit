@@ -1,7 +1,5 @@
 <script lang="ts">
 	import Men from './Men.svelte';
-	import MenTest from './MenTest.svelte';
-	import Mentest2 from './Mentest2.svelte';
 	import MenuMobile from './MenuMobile.svelte';
 	import Cart from './SVG/Cart.svelte';
 	import Favorite from './SVG/Favorite.svelte';

@@ -1,27 +1,20 @@
 <script lang="ts">
-   /** @type {import('./$types').PageData} */
-   export let data : any;
-   const products : Product[] = data.products;
-	import Carts from "../components/Carts/Carts.svelte";
-	import Collections from "../components/Collections/Collections.svelte";
-	import Hero from "../components/Hero/Hero.svelte";
-  import ProductsBanner from "../components/ProductsBanner/ProductsBanner.svelte";
-   </script>
-   <div>
-   <div><Hero/></div>
-   <div><Collections {products}  /></div>
-   <div>
-    {#each products as product (product.id)}
-    <Carts  {product}/>
-    {/each}
-    {#each products as product  (product.id)}
-    <ProductsBanner  {product}/>
-    {/each}
-    <a href="checkout">CheckOut</a>
-   </div>
-   </div>
-   <style lang="postcss">
+	/** @type {import('./$types').PageData} */
+	export let data: any;
 
-      
-   </style>
-   
+	const products: Product[] = data.products;
+	import Banner from '../components/Banner/Banner.svelte';
+	import Carousel from '../components/Carousel/Carousel.svelte';
+	import Collection from '../components/Collections/Collection.svelte';
+	import Footer from '../components/Footer/Footer.svelte';
+	import Hero from '../components/Hero/Hero.svelte';
+	import Social from '../components/Social/Social.svelte';
+</script>
+<div><Hero /></div>
+<div><Carousel /></div>
+<div><Collection /></div>
+<div><Banner /></div>
+<div><Social /></div>
+<div><Footer /></div>
+<style>
+</style>

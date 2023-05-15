@@ -1,9 +1,9 @@
 
 
-import axios from "axios";
-
-export async function load({ params }) {
-  const response = await axios.get(`https://fakestoreapi.com/products/${params.id}`)
-  
-  return response.data;
+/** @type {import('./$types').PageLoad} */
+export async function load({ fetch,params }) {
+  const res = await fetch(`https://fakestoreapi.com/products/${params.id}`)
+const product =  await res.json();
+  return { product};
+  console.log(product)
 }

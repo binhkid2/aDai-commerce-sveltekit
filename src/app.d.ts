@@ -9,13 +9,16 @@ declare global {
 	}
 }
 declare class Product {
-
 	title: string  // "Coffee"
 	price: number // 5
-	image:string
+	images:string[]
 	 id: string;
 	 description:string
-	 category:string
+	 category: {
+		id: number;
+		name: string;
+		image: string;
+	  };
 }
 declare class CartItem {
 	id: string
@@ -24,4 +27,5 @@ declare class CartItem {
 	totalPrice:number
 	
 }
-
+declare module 'simple-svelte-autocomplete'
+declare module 'svelte-carousel';

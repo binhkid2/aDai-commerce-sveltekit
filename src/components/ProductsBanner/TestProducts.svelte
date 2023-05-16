@@ -21,7 +21,7 @@
         });
     </script>
             <div class="group group-hover:bg-opacity-60 transition duration-500 relative bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 sm:p-28 py-36 px-10 flex justify-center items-center">
-                <a href={`/product/${product.id}`}>  <img class="w-96 h-96 group-hover:opacity-60 transition duration-500" alt={product.title} src={product.image} /> </a>
+                <a href={`/product/${product.id}`}>  <img class="object-fill w-96 h-96	 group-hover:opacity-60 transition duration-500" alt={product.title} src={product.images[0]} /> </a>
                 <div class="absolute sm:top-8 top-4 left-4 sm:left-8 flex justify-start items-start flex-col space-y-2">
                     <div>
                         <p class="group-hover:opacity-60 transition duration-500 text-xl leading-5 text-gray-600 dark:text-white">{product.title}</p>
@@ -32,16 +32,17 @@
                 </div>
                
                 <div class="flex flex-col bottom-8 left-8 space-y-4 absolute opacity-0 group-hover:opacity-100 transition duration-500">
-                    <button>
+                    <button on:click={() =>  addToCart(product.id,totalPrice,price)}>
                         <img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/product-grid-2-svg1.svg" alt="add">
                         <img class="hidden dark:block" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/product-grid-2-svg1dark.svg
 
 " alt="add">
                     </button>
-                    <button>
+                    <a href="/product/{product.id}" class="m-0 p-0"><button>
                         <img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/product-grid-2-svg2.svg" alt="view">
                         <img class="hidden dark:block" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/product-grid-2-svg2dark.svg" alt="view">
                     </button>
+                </a>
                     <button>
                         <img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/product-grid-2-svg3.svg" alt="like">
                         <img class="hidden dark:block" src="

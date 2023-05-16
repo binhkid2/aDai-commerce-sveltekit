@@ -1,7 +1,6 @@
 <script lang="ts">
 	/** @type {import('./$types').PageData} */
 	export let data: any;
-
 	const products: Product[] = data.products;
 	import Banner from '../components/Banner/Banner.svelte';
 	import Carousel from '../components/Carousel/Carousel.svelte';

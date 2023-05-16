@@ -24,12 +24,12 @@
 	{#if cartProduct !== undefined}
 		
     <div class="grid grid-cols-3 shadow-lg ring-1 ring-slate-400 p-4 rounded-lg my-2">
-        <img src="{product.image}" alt="{product.title}" class="w-60 m-auto" />
+        <img src="{product.images[0]}" alt="{product.title}" class="w-60 m-auto" />
         <div>
             <div class="text-3xl m-auto">
                 <a href="/product/{product.id}" data-sveltekit-reload class="transition ease-in-out delay-15 duration-300">
                     <h2 class="w-full">{product.title}</h2>
-                    <div class="badge bg-blue-700 border-0 lg:text-xl sm:text-base p-4">{product.category}</div>
+                    <div class="badge bg-blue-700 border-0 lg:text-xl sm:text-base p-4">{product.category.name}</div>
                     <div class="badge badge-secondary  lg:text-xl sm:text-base p-4">£{product.price}</div>
                     <div class="hidden" id={product.id}>{product.price}</div>
                 </a>

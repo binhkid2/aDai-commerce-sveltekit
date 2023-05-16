@@ -26,7 +26,7 @@
     <header ><h2>{product.title}</h2></header>
 
 	
-		<img class="img"  alt={product.title} src={product.image}/>
+		<img class="img"  alt={product.title} src={product.images[0]}/>
 	
     {#if cartProduct !== undefined}
         <div >

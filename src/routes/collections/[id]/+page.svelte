@@ -13,10 +13,10 @@
     <div class="flex flex-col"> 
         <div class="flex flex-col justify-center">
             <div class="relative">
-                <img class="hidden sm:block w-full" src="https://i.ibb.co/HxXSY0j/jason-wang-Nx-Awry-Abt-Iw-unsplash-1-1.png" alt="sofa" />
-                <img class="sm:hidden w-full" src="https://i.ibb.co/B6qwqPT/jason-wang-Nx-Awry-Abt-Iw-unsplash-1.png" alt="sofa" />
+                <img class="hidden sm:block object-fill w-full h-52" src="{products[0].category.image}" alt="sofa" />
+                <img class="sm:hidden object-fill w-full h-52" src="{products[0].category.image}" alt="sofa" />
                 <div class="absolute sm:bottom-8 bottom-4 pr-10 sm:pr-0 left-4 sm:left-8 flex justify-start items-start">
-                    <p class="text-3xl sm:text-4xl font-semibold leading-9 text-white">{params}</p>
+                    <p class="text-3xl sm:text-4xl font-semibold leading-9 text-white">{products[0].category.name}</p>
                 </div>
             </div>
         </div>

@@ -15,7 +15,6 @@ console.log(products)
                         <p class="text-3xl sm:text-4xl font-semibold leading-9 text-white">All Product</p>
                     </div>
                 </div>
-    
                 <div class="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 lg:gap-y-12 lg:gap-x-8 sm:gap-y-10 sm:gap-x-6 gap-y-6 lg:mt-12 mt-10">
 {#each products as product}
 <ProductsBanner2 {product} />

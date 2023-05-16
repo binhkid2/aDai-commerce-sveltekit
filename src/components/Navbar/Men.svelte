@@ -26,7 +26,6 @@
           <a class="font-base underline text-xl" href="/shop?brand=Nike&type=Mens" data-sveltekit-reload>Nike</a>
           <a class="font-base underline text-xl" href="/shop?brand=Adidas&type=Mens" data-sveltekit-reload>Adidas</a>
           <a class="font-base underline text-xl" href="/shop?brand=Puma&type=Mens" data-sveltekit-reload>Puma</a>
-          <a class="font-base underline text-xl" href="/shop?brand=Under%20Armour&type=Mens" data-sveltekit-reload>Under Armour</a>
         </div>
         <div class="grid grid-cols-1 p-2">
           <div class="font-semibold text-4xl flex">
@@ -36,7 +35,6 @@
           <a class="font-base underline text-xl" href="/shop?brand=Nike&type=Mens" data-sveltekit-reload>Nike</a>
           <a class="font-base underline text-xl" href="/shop?brand=Adidas&type=Mens" data-sveltekit-reload>Adidas</a>
           <a class="font-base underline text-xl" href="/shop?brand=Puma&type=Mens" data-sveltekit-reload>Puma</a>
-          <a class="font-base underline text-xl" href="/shop?brand=Under%20Armour&type=Mens" data-sveltekit-reload>Under Armour</a>
         </div>
       </div>
     </div>

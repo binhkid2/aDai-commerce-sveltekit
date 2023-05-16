@@ -4,7 +4,7 @@
     </div></a>
     <div class="p-6 mega-menu mb-16 mt-16 sm:mb-0 shadow-xl bg-gradient-to-r from-red-300 to-red-700">
       <div class="grid grid-cols-5 m-auto">
-        <img src="/banner-right-image.png" alt="nav mens img" class="w-60" />
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEi2tjVCAC30yC5fxlKWmvg0A_P-xHdIs_sfJtce4jtUxcq6aVE312ASn3PCMw6Evj5xh_sriB5SR13to-K6JaI6CANWXP51bOKkmkfDVZeLjhoXEyL85GQiYZIFJiuMGEbpMmCkEVNSeDlrYK6zNFRqAhtT-m9LrQ1ZOLGRBeCuUi15w5ZYrYImLKTd=s100" alt="nav mens img" class="rounded-full w-48 h-48" />
         <div>
           <h2 class="font-bold text-4xl flex pb-4">Products</h2>
           <p class="font-base text-xl w-52">Select what suits your style best...</p>

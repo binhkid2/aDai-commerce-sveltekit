@@ -55,7 +55,7 @@ autoplayDuration={2000}
 
 <div class="mx-6 my-2">
     <h1 class="text-4xl font-semibold pb-4">{product.title}</h1>
-    <div class="badge bg-blue-700 text-lg border-0 p-4">{product.category.name}</div>
+    <div class="badge bg-blue-700 text-lg border-0 p-4">{product.category}</div>
     <div class="badge badge-secondary text-lg p-4">£{product.price}</div>
     <div class="flex space-x-2 rounded-xl py-4 m-auto">
         <p>{product.description}</p>

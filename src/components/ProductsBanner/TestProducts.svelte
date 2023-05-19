@@ -20,6 +20,7 @@
             totalPrice = cartProduct ? cartProduct.quantity * product.price : 0;
         });
     </script>
+    {#if product.images && product.id && product.title && product.price}
             <div class="group group-hover:bg-opacity-60 transition duration-500 relative bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 sm:p-28 py-36 px-10 flex justify-center items-center">
                 <a href={`/product/${product.id}`}>  <img class="object-fill w-96 h-96	 group-hover:opacity-60 transition duration-500" alt={product.title} src={product.images[0]} /> </a>
                 <div class="absolute sm:top-8 top-4 left-4 sm:left-8 flex justify-start items-start flex-col space-y-2">
@@ -50,3 +51,4 @@ https://tuk-cdn.s3.amazonaws.com/can-uploader/product-grid-2-svg3dark.svg" alt="
                     </button>
                 </div>
             </div>
+            {/if}

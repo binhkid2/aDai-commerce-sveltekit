@@ -14,11 +14,7 @@ declare class Product {
 	images:string[]
 	 id: string;
 	 description:string
-	 category: {
-		id: number;
-		name: string;
-		image: string;
-	  };
+	 category: string
 }
 declare class CartItem {
 	id: string

@@ -19,7 +19,7 @@
 		totalPrice = cartProduct ? cartProduct.quantity * product.price : 0;
 	});
 </script>
-
+{#if product.images && product.id && product.title && product.price}
 
 <div>
 	
@@ -40,6 +40,7 @@
         <button on:click={() =>  addToCart(product.id,totalPrice,price)}>Buy Now</button>
     </footer>
 </div>
+{/if}
 <style lang="postcss">
 	img{
 		max-width: 200px;

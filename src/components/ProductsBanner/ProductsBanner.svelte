@@ -19,7 +19,7 @@
 		totalPrice = cartProduct ? cartProduct.quantity * product.price : 0;
 	});
 </script>
-
+{#if product.images && product.id && product.title && product.price}
 
 <div>
 	<a href={`/product/${product.id}`}>
@@ -40,6 +40,8 @@
         <a href={`/product/${product.id}`}>Buy Now</a>
     </footer>
 </div>
+{/if}
+
 <style lang="postcss">
 	img{
 		max-width: 200px;

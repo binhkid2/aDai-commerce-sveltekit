@@ -12,9 +12,10 @@ declare class Product {
 	title: string  // "Coffee"
 	price: number // 5
 	images:string[]
-	 id: string;
+	 id: string
 	 description:string
 	 category: string
+	 categoryVN:string
 }
 declare class CartItem {
 	id: string

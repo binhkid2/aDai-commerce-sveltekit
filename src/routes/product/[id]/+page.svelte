@@ -8,6 +8,7 @@ import {cartItems,addToCart,removeFromCart} from "../../../cart";
 /** @type {import('./$types').PageData} */
 export let data: any;
 const product: Product = data.product;
+console.log(product)
 let cart = get(cartItems); // [ { id: "1", quantity: 6 }, { id: "2", quantity: 3 } ]
 // id: "1"
 let cartItemIndex = cart.findIndex((item) => {
@@ -46,16 +47,21 @@ totalPrice = cartProduct ? cartProduct.quantity * product.price : 0;
 autoplay
 autoplayDuration={2000}
 >
-{#each product.images as image}
-<img src={image} alt={product.title} class=" h-auto m-auto rounded-lg">
-{/each}
+{#if Array.isArray(product.images)}
+  {#each product.images as image}
+    <img src={image} alt={product.title} class="h-auto m-auto rounded-lg">
+  {/each}
+{:else}
+  <img src={product.images} alt={product.title} class="h-auto m-auto rounded-lg">
+{/if}
+
 </Carousel>
 {/if}
 
 
 <div class="mx-6 my-2">
     <h1 class="text-4xl font-semibold pb-4">{product.title}</h1>
-    <div class="badge bg-blue-700 text-lg border-0 p-4">{product.category}</div>
+    <div class="badge bg-blue-700 text-lg border-0 p-4">{product.categoryVN}</div>
     <div class="badge badge-secondary text-lg p-4">£{product.price}</div>
     <div class="flex space-x-2 rounded-xl py-4 m-auto">
         <p>{product.description}</p>

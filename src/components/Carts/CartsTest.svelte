@@ -29,7 +29,7 @@
             <div class="text-3xl m-auto">
                 <a href="/product/{product.id}" class="transition ease-in-out delay-15 duration-300">
                     <h2 class="w-full">{product.title}</h2>
-                    <div class="badge bg-blue-700 border-0 lg:text-xl sm:text-base p-4">{product.category}</div>
+                    <div class="badge bg-blue-700 border-0 lg:text-xl sm:text-base  p-4">{product.categoryVN}</div>
                     <div class="badge badge-secondary  lg:text-xl sm:text-base p-4">£{product.price}</div>
                     <div class="hidden" id={product.id}>{product.price}</div>
                 </a>

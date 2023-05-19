@@ -2,7 +2,6 @@
     <p class="text-center font-serif font-semibold text-3xl p-2 text-white">Want marketing updates ?</p>
     <div class="flex justify-center items-center space-x-4">
       <input placeholder="Enter email" class="text-center max-w-2xl rounded-lg p-2 shadow-lg" />
-      <button class="bg-red-300 hover:bg-red-500 text-white font-bold py-2 px-4 rounded">Add</button>
     </div>
 </div>
 <footer class="footer p-10 bg-base-200 text-base-content">

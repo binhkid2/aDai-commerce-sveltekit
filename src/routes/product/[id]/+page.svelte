@@ -8,7 +8,8 @@ import {cartItems,addToCart,removeFromCart} from "../../../cart";
 /** @type {import('./$types').PageData} */
 export let data: any;
 const product: Product = data.product;
-console.log(product)
+const formatted: string = product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+const formattedPrice: string = `${formatted} `;
 let cart = get(cartItems); // [ { id: "1", quantity: 6 }, { id: "2", quantity: 3 } ]
 // id: "1"
 let cartItemIndex = cart.findIndex((item) => {
@@ -62,7 +63,7 @@ autoplayDuration={2000}
 <div class="mx-6 my-2">
     <h1 class="text-4xl font-semibold pb-4">{product.title}</h1>
     <div class="badge bg-blue-700 text-lg border-0 p-4">{product.categoryVN}</div>
-    <div class="badge badge-secondary text-lg p-4">£{product.price}</div>
+    <div class="badge badge-secondary text-lg p-4">{formattedPrice} <span> &#8363;</span></div>
     <div class="flex space-x-2 rounded-xl py-4 m-auto">
         <p>{product.description}</p>
     </div>

@@ -5,24 +5,23 @@
   /** @type {import('./$types').PageData} */
   export let data: any;
   const products: Product[] = data.products;
- 
-  
   let cart = get(cartItems);
-  let grossPrice: number = cart.reduce((total, item) => {
-    return total + (item.price * item.quantity);
-  }, 0);
+  let  grossPrice = cart.reduce((total, item) => {
+      return total + (item.price * item.quantity);
+    }, 0);
   
-  let grossQuantity : number = cart.reduce((total, item) => {
-    return total + item.totalPrice;
-  }, 0);
+  let grossQuantity = cart.reduce((total, item) => {
+      return total + item.quantity;
+    }, 0);
   
   cartItems.subscribe((newCartValue) => {
     cart = newCartValue;
-    grossQuantity = cart.reduce((total, item) => {
-      return total + item.quantity;
-    }, 0);
-    grossPrice = cart.reduce((total, item) => {
+      grossPrice = cart.reduce((total, item) => {
       return total + (item.price * item.quantity);
+    }, 0);
+  
+   grossQuantity = cart.reduce((total, item) => {
+      return total + item.quantity;
     }, 0);
   });
 </script>

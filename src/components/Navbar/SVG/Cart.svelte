@@ -1,7 +1,7 @@
 <script lang="ts">
 import { get } from 'svelte/store';
+import OutClick from 'svelte-outclick'
 	import cartItems from '../../../cart';
-
 	let cart = get(cartItems); // [ { id: "1", quantity: 6 }, { id: "2", quantity: 3 } ]
 	// id: "1"
     let grossQuantity : number = cart.reduce((total, item) => {
@@ -13,26 +13,184 @@ import { get } from 'svelte/store';
         return total + item.quantity;
       }, 0);
     })
-  
+    let showModal = false;
+import { createEventDispatcher } from 'svelte';
+const dispatch = createEventDispatcher();
+function toggleModal() {
+  showModal = !showModal;
+}
+ function back(): void {
+    showModal = false;
+    dispatch('close');
+  }
+  const handle_keydown = (event)=>{
+    if (event.key == 'Escape'){
+      showModal=false;
+    }
+  }
 </script>
-
-<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-<!-- svelte-ignore a11y-label-has-associated-control -->
-<label tabindex="0" class="btn btn-ghost btn-circle mr-4">
-   <a href="/checkout"> <div class="indicator">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="25"
-            height="25"
-            fill="currentColor"
-            class="bi bi-cart"
-            viewBox="0 0 16 16"
-        >
-            <path
-                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
-            />
-        </svg>
-        <span class="badge badge-sm bg-red-700 indicator-item rounded-lg"> {grossQuantity}</span>
+<OutClick
+	on:outclick={back}
+>
+</OutClick>
+<svelte:window on:keydown={handle_keydown} />
+{#if showModal}
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div  class="w-full h-full bg-black dark:bg-gray-900 bg-opacity-90 top-0 overflow-y-auto overflow-x-hidden fixed sticky-0" id="chec-div">
+  <div class="w-full absolute z-10 right-0 h-full overflow-x-hidden transform translate-x-0 transition ease-in-out duration-700" id="checkout">
+      <div class="flex items-end lg:flex-row flex-col justify-end" id="cart">
+          <div class="lg:w-1/2 md:w-8/12 w-full lg:px-8 lg:py-14 md:px-6 px-4 md:py-8 py-4 bg-white dark:bg-gray-800 overflow-y-hidden overflow-x-hidden lg:h-screen h-auto" id="scroll">
+              <button on:click={back} class="flex items-center text-gray-500 hover:text-gray-600 dark:text-white cursor-pointer" >
+                  <img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/shopping-cart-1-svg1.svg" alt="previous"/>
+                   <img class="dark:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/shopping-cart-1-svg1dark.svg" alt="previous"/>
+                  <p class="text-sm pl-2 leading-none dark:hover:text-gray-200">Back</p>
+              </button>
+              
+              <div class="md:flex items-strech py-8 md:py-10 lg:py-8 border-t border-gray-50">
+                  <div class="md:w-4/12 2xl:w-1/4 w-full">
+                      <img src="https://i.ibb.co/SX762kX/Rectangle-36-1.png" alt="Black Leather Bag" class="h-full object-center object-cover md:block hidden" />
+                      <img src="https://i.ibb.co/g9xsdCM/Rectangle-37.pngg" alt="Black Leather Bag" class="md:hidden w-full h-full object-center object-cover" />
+                  </div>
+                  <div class="md:pl-3 md:w-8/12 2xl:w-3/4 flex flex-col justify-center">
+                      <p class="text-xs leading-3 text-gray-800 dark:text-white md:pt-0 pt-4">RF293</p>
+                      <div class="flex items-center justify-between w-full pt-1">
+                          <p class="text-base font-black leading-none text-gray-800 dark:text-white">North wolf bag</p>
+                          <select aria-label="Select quantity" class="py-2 px-1 border border-gray-200 mr-6 focus:outline-none dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
+                              <option>01</option>
+                              <option>02</option>
+                              <option>03</option>
+                          </select>
+                      </div>
+                      <p class="text-xs leading-3 text-gray-600 dark:text-white pt-2">Height: 10 inches</p>
+                      <p class="text-xs leading-3 text-gray-600 dark:text-white py-4">Color: Black</p>
+                      <p class="w-96 text-xs leading-3 text-gray-600 dark:text-white">Composition: 100% calf leather</p>
+                      <div class="flex items-center justify-between pt-5">
+                          <div class="flex itemms-center">
+                              <p class="text-xs leading-3 underline text-gray-800 dark:text-white cursor-pointer">Add to favorites</p>
+                              <p class="text-xs leading-3 underline text-red-500 pl-5 cursor-pointer">Remove</p>
+                          </div>
+                          <p class="text-base font-black leading-none text-gray-800 dark:text-white">$9,000</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="md:flex items-strech py-8 md:py-10 lg:py-8 border-t border-gray-50">
+                  <div class="md:w-4/12 2xl:w-1/4 w-full">
+                      <img src="https://i.ibb.co/c6KyDXN/Rectangle-5-1.png" alt="Gray Sneakers" class="h-full object-center object-cover md:block hidden" />
+                      <img src="https://i.ibb.co/yVSpYqx/Rectangle-6.png" alt="Gray Sneakers" class="md:hidden w-full h-full object-center object-cover" />
+                  </div>
+                  <div class="md:pl-3 md:w-8/12 2xl:w-3/4 flex flex-col justify-center">
+                      <p class="text-xs leading-3 text-gray-800 dark:text-white md:pt-0 pt-4">RF293</p>
+                      <div class="flex items-center justify-between w-full pt-1">
+                          <p class="text-base font-black leading-none text-gray-800 dark:text-white">LW sneakers</p>
+                          <select aria-label="Select quantity" class="py-2 px-1 border border-gray-200 mr-6 focus:outline-none dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
+                              <option>01</option>
+                              <option>02</option>
+                              <option>03</option>
+                          </select>
+                      </div>
+                      <p class="text-xs leading-3 text-gray-600 dark:text-white pt-2">Height: 10 inches</p>
+                      <p class="text-xs leading-3 text-gray-600 dark:text-white py-4">Color: Black</p>
+                      <p class="w-96 text-xs leading-3 text-gray-600 dark:text-white">Composition: 100% calf leather</p>
+                      <div class="flex items-center justify-between pt-5">
+                          <div class="flex itemms-center">
+                              <p class="text-xs leading-3 underline text-gray-800 dark:text-white cursor-pointer">Add to favorites</p>
+                              <p class="text-xs leading-3 underline text-red-500 pl-5 cursor-pointer">Remove</p>
+                          </div>
+                          <p class="text-base font-black leading-none text-gray-800 dark:text-white">$9,000</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="md:flex items-strech py-8 md:py-10 lg:py-8 border-t border-gray-50">
+                  <div class="md:w-4/12 2xl:w-1/4 w-full">
+                      <img src="https://i.ibb.co/6gzWwSq/Rectangle-20-1.png" alt="Black Leather Purse" class="h-full object-center object-cover md:block hidden" />
+                      <img src="https://i.ibb.co/TTnzMTf/Rectangle-21.png" alt="Black Leather Purse" class="md:hidden w-full h-full object-center object-cover" />
+                  </div>
+                  <div class="md:pl-3 md:w-8/12 2xl:w-3/4 flex flex-col justify-center">
+                      <p class="text-xs leading-3 text-gray-800 dark:text-white md:pt-0 pt-4">RF293</p>
+                      <div class="flex items-center justify-between w-full">
+                          <p class="text-base font-black leading-none text-gray-800 dark:text-white">Luxe card holder</p>
+                          <select aria-label="Select quantity" class="py-2 px-1 border border-gray-200 mr-6 focus:outline-none dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
+                              <option>01</option>
+                              <option>02</option>
+                              <option>03</option>
+                          </select>
+                      </div>
+                      <p class="text-xs leading-3 text-gray-600 dark:text-white pt-2">Height: 10 inches</p>
+                      <p class="text-xs leading-3 text-gray-600 dark:text-white py-4">Color: Black</p>
+                      <p class="w-96 text-xs leading-3 text-gray-600 dark:text-white">Composition: 100% calf leather</p>
+                      <div class="flex items-center justify-between pt-5">
+                          <div class="flex itemms-center">
+                              <p class="text-xs leading-3 underline text-gray-800 dark:text-white cursor-pointer">Add to favorites</p>
+                              <p class="text-xs leading-3 underline text-red-500 pl-5 cursor-pointer">Remove</p>
+                          </div>
+                          <p class="text-base font-black leading-none text-gray-800 dark:text-white">$9,000</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="lg:w-96 md:w-8/12 w-full bg-gray-100 dark:bg-gray-900 h-full">
+              <div class="flex flex-col lg:h-screen h-auto lg:px-8 md:px-7 px-4 lg:py-20 md:py-10 py-6 justify-between overflow-y-auto">
+                  <div>
+                      <p class="lg:text-4xl text-3xl font-black leading-9 text-gray-800 dark:text-white">Summary</p>
+                      <div class="flex items-center justify-between pt-16">
+                          <p class="text-base leading-none text-gray-800 dark:text-white">Subtotal</p>
+                          <p class="text-base leading-none text-gray-800 dark:text-white">$9,000</p>
+                      </div>
+                      <div class="flex items-center justify-between pt-5">
+                          <p class="text-base leading-none text-gray-800 dark:text-white">Shipping</p>
+                          <p class="text-base leading-none text-gray-800 dark:text-white">$30</p>
+                      </div>
+                      <div class="flex items-center justify-between pt-5">
+                          <p class="text-base leading-none text-gray-800 dark:text-white">Tax</p>
+                          <p class="text-base leading-none text-gray-800 dark:text-white">$35</p>
+                      </div>
+                  </div>
+                  <div>
+                      <div class="flex items-center pb-6 justify-between lg:pt-5 pt-20">
+                          <p class="text-2xl leading-normal text-gray-800 dark:text-white">Total</p>
+                          <p class="text-2xl font-bold leading-normal text-right text-gray-800 dark:text-white">$10,240</p>
+                      </div>
+                      <button  class="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white dark:hover:bg-gray-700">Checkout</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+  {:else}
+  <button  on:click={toggleModal} tabindex="0"   class="btn btn-ghost btn-circle mr-4">
+    <div class="indicator">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="25"
+        height="25"
+        fill="currentColor"
+        class="bi bi-cart"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        />
+      </svg>
+      <span class="badge badge-sm bg-red-700 indicator-item rounded-lg"> {cart.length}</span>
     </div>
-</a>
-</label>
+  </button>
+{/if}
+
+
+<style>
+  /* width */
+  #scroll::-webkit-scrollbar {
+      width: 1px;
+  }
+
+  /* Track */
+  #scroll::-webkit-scrollbar-track {
+      background: #f1f1f1;
+  }
+
+  /* Handle */
+  #scroll::-webkit-scrollbar-thumb {
+      background: rgb(133, 132, 132);
+  }
+</style>

@@ -9,6 +9,9 @@ import { get } from 'svelte/store';
 	});
 	let cartProduct = cart[cartItemIndex];
 	let price=product.price;
+	function formatPrice(number:number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
 	let totalPrice: number = cartProduct ? cartProduct.quantity * product.price : 0;
 	cartItems.subscribe((newCartValue) => {
 		cart = newCartValue;
@@ -39,6 +42,6 @@ import { get } from 'svelte/store';
 	  <a href={`/product/${product.id}`}>
 		<p class="font-normal dark:text-white text-xl leading-5 text-gray-800 md:mt-6 mt-4">{product.title}</p>
 	  </a>
-	  <p class="font-semibold dark:text-gray-300 text-xl leading-5 text-gray-800 mt-4">{product.price}</p>
+	  <p class="font-semibold dark:text-gray-300 text-xl leading-5 text-gray-800 mt-4">{formatPrice(price)} <span> &#8363;</span></p>
 	</div>
   {/if}

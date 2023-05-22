@@ -3,7 +3,6 @@
  export let data :any;
  import ProductsBanner2 from "../../components/ProductsBanner/ProductsBanner2.svelte";
  const  products  = data.products;
-console.log(products)
 </script>
 <div>
         <div class="2xl:container 2xl:mx-auto">

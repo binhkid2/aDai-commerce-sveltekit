@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Men from './Men.svelte';
+	import CategoryDesktop from './CategoryDesktop.svelte';
 	import Cart from './SVG/Cart.svelte';
 	import Favorite from './SVG/Favorite.svelte';
 	import Hamburger from './SVG/Hamburger.svelte';
@@ -11,6 +11,12 @@
 	export let productMens = [] as Product[];
 	export let productWommens = [] as Product[];
 	export let productUnisexs = [] as Product[];
+	function limited(title:string, maxLength:number) {
+    if (title.length > maxLength) {
+      return `${title.slice(0, maxLength)}...`;
+    }
+    return title;
+  }
 </script>
 
 <div class="navbar pl-0 pr-0 bg-base-100 sticky shadow-xl top-0 z-50">
@@ -25,22 +31,22 @@
 
 	<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 	<li tabindex="0" class="grid grid-cols-3 py-2">
-	  <a href="/category/men" class="font-bold text-lg  col-span-3 text-fuchsia-950">Men</a>
+	  <a href="/category/men" class="font-bold text-lg  col-span-3 text-fuchsia-950" data-sveltekit-reload>Men</a>
 	  {#each productMens.slice(0, 3) as productMen}
-	  <a class="font-base text-red-500/75 text-md" href="/product/{productMen.id}" data-sveltekit-reload>{productMen.title}</a>
+	  <a class="font-base text-red-500/75 text-md" href="/product/{productMen.id}" data-sveltekit-reload>{limited(productMen.title, 10)}</a>
 	  {/each}
 	</li>
 	<li tabindex="0" class="grid grid-cols-3 py-2">
-	  <a href="/category/wommen" class="font-bold text-lg col-span-3 text-fuchsia-950">Wommen</a>   
+	  <a href="/category/wommen" class="font-bold text-lg col-span-3 text-fuchsia-950" data-sveltekit-reload>Wommen</a>   
 	   {#each productWommens.slice(0, 3) as productWommen}
-	  <a class="font-base text-red-500/75 text-md" href="/product/{productWommen.id}" data-sveltekit-reload>{productWommen.title}</a>
+	  <a class="font-base text-red-500/75 text-md" href="/product/{productWommen.id}" data-sveltekit-reload> {limited(productWommen.title, 20)}</a>
 	 {/each}
 	  
 	</li>
 	<li tabindex="0" class="grid grid-cols-3 py-2">
-		<a href="/category/unisex" class="font-bold text-lg col-span-3 text-fuchsia-950">Unisex</a>   
+		<a href="/category/unisex" class="font-bold text-lg col-span-3 text-fuchsia-950" data-sveltekit-reload>Unisex</a>   
 	 {#each productUnisexs.slice(0, 3) as productUnisex }
-	 <a class="font-base text-red-500/75 text-md" href="/product/{productUnisex.id}" data-sveltekit-reload>{productUnisex.title}</a>
+	 <a class="font-base text-red-500/75 text-md" href="/product/{productUnisex.id}" data-sveltekit-reload>{limited(productUnisex.title, 20)}</a>
 	 {/each}
 	</li>
 	<li tabindex="0" class="grid grid-cols-1 py-2">
@@ -61,7 +67,7 @@
 	<div class="navbar-center hidden lg:flex">
 		<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 		<ul class="menu menu-horizontal" tabindex="0">
-			<Men />
+			<CategoryDesktop {productMens} {productUnisexs} {productWommens}/>
 			<li><a href="/about">About</a></li>
 			<li><a href="/contact">Contact</a></li>
 			<li><a href="/faq">FAQs</a></li>

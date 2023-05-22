@@ -23,7 +23,7 @@ function toggleModal() {
     showModal = false;
     dispatch('close');
   }
-  const handle_keydown = (event)=>{
+  const handle_keydown = (event:any)=>{
     if (event.key == 'Escape'){
       showModal=false;
     }

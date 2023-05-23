@@ -51,12 +51,13 @@
 					<span>Note for Store (optional)</span>
 					<textarea  placeholder="London" class="input input-bordered" />
 				</label>
+				<button class="m-4 p-4 border border-transparent hover:border-gray-300 dark:bg-white dark:hover:bg-gray-900 dark:text-gray-900 dark:hover:text-white dark:border-transparent bg-gray-900 hover:bg-white text-white hover:text-gray-900 flex justify-center items-center py-4 rounded w-full">
+					<div>
+						<p class="text-base leading-4">Pay $54652</p>
+					</div>
+				</button>
 			</div>
-            <div class="m-auto flex justify-center my-6">
-					<button class="bg-red-500 hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
-						>PAY NOW</button
-					>
-			</div>
+            
         </form>
 			
 		</div>

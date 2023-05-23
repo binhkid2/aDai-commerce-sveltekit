@@ -61,9 +61,9 @@ function toggleModal() {
       <div class="flex items-end lg:flex-row flex-col justify-end" id="cart">
           <div class="lg:w-1/2 md:w-8/12 w-full lg:px-8 lg:py-14 md:px-6 px-4 md:py-8 py-4 bg-white dark:bg-gray-800 overflow-y-hidden overflow-x-hidden lg:h-screen h-auto" id="scroll">
               <button on:click={back} class="flex items-center text-gray-500 hover:text-gray-600 dark:text-white cursor-pointer" >
-                  <img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/shopping-cart-1-svg1.svg" alt="previous"/>
-                   <img class="dark:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/shopping-cart-1-svg1dark.svg" alt="previous"/>
-                  <p class="text-sm pl-2 leading-none dark:hover:text-gray-200">Back</p>
+                  <img class="dark:hidden lg:w-4 w-2" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/shopping-cart-1-svg1.svg" alt="previous"/>
+                   <img class="dark:block w-2 lg:w-4 hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/shopping-cart-1-svg1dark.svg" alt="previous"/>
+                  <p class="text-base lg:text-xl font-bold pl-2 leading-none dark:hover:text-gray-200">Back</p>
               </button>
               {#each products as product}
              <CartsTest {product}/>
@@ -93,7 +93,7 @@ function toggleModal() {
                           <p class="text-2xl leading-normal text-gray-800 dark:text-white">Total</p>
                           <p class="text-2xl font-bold leading-normal text-right text-gray-800 dark:text-white">{formattedPrice}<span> &#8363;</span></p>
                       </div>
-                     <a href="/checkout2">
+                     <a href="/checkout">
                          <button on:click={back} class="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white dark:hover:bg-gray-700">Checkout</button>
                   </a>
                         </div>

@@ -41,7 +41,6 @@ totalPrice = cartProduct ? cartProduct.quantity * product.price : 0;
 
 import { onMount } from 'svelte';
 	import RelatedProducts from '../../../components/ProductsBanner/RelatedProducts.svelte';
-	import Products from '../../../components/Products/Products.svelte';
 
   let description = product.description;
   let showFullDescription = false;
@@ -60,12 +59,13 @@ import { onMount } from 'svelte';
 
 <div class="py-5">
 <div class="p-6 m-auto grid grid-cols-1 md:grid-cols-2 max-w-7xl">
-
-
 {#if browser}
 <Carousel
 autoplay
-autoplayDuration={2000}
+autoplayDuration={4000}
+arrows={false}
+autoplayProgressVisible
+pauseOnFocus
 >
 {#if Array.isArray(product.images)}
   {#each product.images as image}

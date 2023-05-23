@@ -2,11 +2,12 @@
 <script lang="ts">
   import Carousel from 'svelte-carousel'
 import { browser } from '$app/environment';
-let carousel; 
 import { get } from "svelte/store";
 import {cartItems,addToCart,removeFromCart} from "../../../cart";
+	import HightLight from '../../../components/HightLight/HightLight.svelte';
 /** @type {import('./$types').PageData} */
 export let data: any;
+const productAll : Product[] = data.products;
 const product: Product = data.product;
 const formatted: string = product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 const formattedPrice: string = `${formatted} `;
@@ -37,6 +38,24 @@ totalPrice:0
 };
 totalPrice = cartProduct ? cartProduct.quantity * product.price : 0;
 });
+
+import { onMount } from 'svelte';
+	import RelatedProducts from '../../../components/ProductsBanner/RelatedProducts.svelte';
+	import Products from '../../../components/Products/Products.svelte';
+
+  let description = product.description;
+  let showFullDescription = false;
+
+  onMount(() => {
+    if (description.length > 300) {
+      showFullDescription = false;
+    } else {
+      showFullDescription = true;
+    }
+  });
+  function toggleDescription() {
+    showFullDescription = !showFullDescription;
+  }
 </script>
 
 <div class="py-5">
@@ -64,24 +83,36 @@ autoplayDuration={2000}
     <h1 class="text-4xl font-semibold pb-4">{product.title}</h1>
     <div class="badge bg-blue-700 text-lg border-0 p-4">{product.categoryVN}</div>
     <div class="badge badge-secondary text-lg p-4">{formattedPrice} <span> &#8363;</span></div>
-    <div class="flex space-x-2 rounded-xl py-4 m-auto">
-        <p>{product.description}</p>
+
+    <div class="py-4">
+      <p class="">{product.summary}</p>
     </div>
+
+<div class="">
+  <HightLight/>
+</div>
+
     <p class="p-2">Quantity: </p>
+   <div class="flex flex-row">
+    <div class="basis-1/2 p-0 m-0">
     <div class="flex space-x-2 rounded-xl bg-gray-200 p-2 w-40 justify-center">
         <button class="w-4 p-2" on:click={() =>  removeFromCart(product.id)}>-</button>
         <span class="w-4 p-2">
-            <div>
               {cartProduct.quantity}
-            </div>
         </span>
         <button class="w-4 p-2" on:click={() =>  addToCart(product.id,totalPrice,price)}>+</button>
     </div>
-    <div class="flex space-x-2 rounded-xl p-2 m-auto">
-        <a href="/checkout" >
-<button class="btn bg-gradient-to-r from-blue-500 to-blue-900 text-white rounded-lg hover:scale-110 border-0 py-2 px-4 my-4"  on:click={() =>  addToCart(product.id,totalPrice,price)}>
-BUY NOW</button></a>
-</div>
+    </div>
+    <div class="basis-1/2 m-0 flex flex-col justify-center">
+      <a href="/checkout" class="flex-grow">
+        <button class="p-4  bg-gradient-to-r from-blue-500 to-blue-900 text-white rounded-lg hover:scale-110 border-0" on:click={() => addToCart(product.id,totalPrice,price)}>
+          BUY NOW
+        </button>
+      </a>
+    </div>
+    
+  </div>
+
         <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
         <!-- svelte-ignore a11y-label-has-associated-control -->
         <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -101,8 +132,36 @@ BUY NOW</button></a>
       -->
    
 </div>
-</div>
-<div class="p-6 m-auto grid grid-cols-1 max-w-7xl">
 
 </div>
+<h2 class="px-12 text-2xl font-semibold text-blue-800">Description</h2>
+<div class=" space-x-2 rounded-xl py-4 px-12 m-auto">
+  {#if showFullDescription}
+  <p>{description}</p>
+{:else}
+  <p>{description.slice(0, 300)}...</p>
+{/if}
+<div class="flex justify-end">
+{#if !showFullDescription}
+  <button on:click={toggleDescription}><strong class="m-0 p-0  bg-gray-100 px-2 py-1 text-sm font-bold ">View More</strong></button>
+{:else}
+  <button on:click={toggleDescription}><strong class="m-0 p-0  bg-gray-100 px-2 py-1 text-sm font-bold">View Less</strong></button>
+{/if}
 </div>
+</div>
+</div>
+<h2 class="px-12 text-2xl font-semibold text-blue-800">Related Products</h2>
+<div class="flex flex-wrap">
+  {#each productAll.slice(0, 4).sort(() => Math.random() - 0.5) as product}
+    <div class="w-full lg:w-1/4 p-4 hidden md:block">
+      <RelatedProducts {product} />
+    </div>
+  {/each}
+  
+  {#each productAll.slice(0, 2).sort(() => Math.random() - 0.5) as product}
+    <div class="w-full md:w-1/2 lg:hidden p-4">
+      <RelatedProducts {product} />
+    </div>
+  {/each}
+</div>
+

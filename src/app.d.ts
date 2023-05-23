@@ -16,6 +16,7 @@ declare class Product {
 	 description:string
 	 category: string
 	 categoryVN:string
+	 summary:string
 }
 declare class CartItem {
 	id: string

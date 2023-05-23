@@ -9,7 +9,7 @@
 	import Footer from "../components/Footer/Footer.svelte";
 	import NavBar from "../components/Navbar/Navbar.svelte";
   </script>
-  <NavBar  {products} {productMens} {productUnisexs} {productWommens}/>
+  <NavBar {data} {products}  {productMens} {productUnisexs} {productWommens}/>
 
   <slot />
   <Footer/>

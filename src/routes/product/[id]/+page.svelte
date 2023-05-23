@@ -80,9 +80,12 @@ autoplayDuration={2000}
 
 
 <div class="mx-6 my-2">
-    <h1 class="text-4xl font-semibold pb-4">{product.title}</h1>
-    <div class="badge bg-blue-700 text-lg border-0 p-4">{product.categoryVN}</div>
-    <div class="badge badge-secondary text-lg p-4">{formattedPrice} <span> &#8363;</span></div>
+    <h1 class="lg:text-4xl text-xl font-semibold pb-4">{product.title}</h1>
+    <div class="lg:space-x-8">
+      <div class="badge bg-blue-700 text-lg border-0 p-4">{product.categoryVN}</div>
+      <div class="badge badge-secondary text-lg p-4">{formattedPrice} <span>&#8363;</span></div>
+    </div>
+    
 
     <div class="py-4">
       <p class="">{product.summary}</p>

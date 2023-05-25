@@ -57,10 +57,10 @@ let selectedState :String
           <p class="text-base leading-normal sm:leading-4 text-gray-600 dark:text-white">Home > Products > Checkout</p>
       </div>
 
-      <div class="flex flex-row justify-between space-y-6 xl:space-y-0 xl:space-x-6 w-full">
+      <div class="flex flex-row justify-center xl:justify-between space-y-6 my-0 xl:space-y-0 xl:space-x-6 w-full">
          
 
-          <div class="p-8 bg-gray-100 dark:bg-gray-800 flex flex-col w-full lg:w-1/2">
+          <div class="p-8 bg-gray-100 dark:bg-gray-800 flex flex-col w-full mt-0 lg:w-1/2">
               <button class="border border-transparent hover:border-blue-500 bg-blue-600 dark:bg-white dark:hover:bg-blue-900 dark:hover:border-blue-900 dark:text-blue-900 dark:hover:text-white hover:bg-white text-white hover:text-gray-900 flex flex-row justify-center items-center space-x-2 py-4 rounded w-full">
                   <div>
                      <img width="16" height="16" src="https://cdn-icons-png.flaticon.com/512/87/87401.png" alt="messenger" />
@@ -129,11 +129,11 @@ let selectedState :String
             </button>
                   </form>
                   </div>
-
+           </div>
 
               
-          </div>
-          <div class="relative lg:w-1/2 m-auto hidden md:block">
+          
+          <div class="relative lg:w-1/2 ml-4 mt-0 mb-4 hidden md:block">
             {#each products as product}
            <CartsTest {product}/>
             {/each}

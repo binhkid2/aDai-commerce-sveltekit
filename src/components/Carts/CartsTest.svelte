@@ -26,7 +26,7 @@
 
 	{#if cartProduct !== undefined}
 		
-    <div class="grid grid-cols-3 shadow-lg ring-1 ring-slate-400 p-4 rounded-lg my-2">
+    <div class="grid grid-cols-3 shadow-lg ring-1 ring-slate-400 p-4 rounded-lg m-0">
         <img src="{product.images[0]}" alt="{product.title}" class="w-60 m-auto" />
         <div>
             <div class="text-3xl m-auto">

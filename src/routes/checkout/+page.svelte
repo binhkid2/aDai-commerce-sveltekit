@@ -57,7 +57,7 @@ let selectedState :String
           <p class="text-base leading-normal sm:leading-4 text-gray-600 dark:text-white">Home > Products > Checkout</p>
       </div>
 
-      <div class="flex flex-col xl:flex-row justify-center xl:justify-between space-y-6 xl:space-y-0 xl:space-x-6 w-full">
+      <div class="flex flex-row justify-between space-y-6 xl:space-y-0 xl:space-x-6 w-full">
          
 
           <div class="p-8 bg-gray-100 dark:bg-gray-800 flex flex-col w-full lg:w-1/2">

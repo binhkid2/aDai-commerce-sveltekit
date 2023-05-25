@@ -9,7 +9,7 @@
 		isMenuOpen = !isMenuOpen;
 	}
 	export let data :any;
-	export let products = [] as Product[];
+	
 	export let productMens = [] as Product[];
 	export let productWommens = [] as Product[];
 	export let productUnisexs = [] as Product[];

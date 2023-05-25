@@ -133,7 +133,7 @@ let selectedState :String
 
               
           </div>
-          <div class="relative w-1/2 m-auto hidden md:block">
+          <div class="relative lg:w-1/2 m-auto hidden md:block">
             {#each products as product}
            <CartsTest {product}/>
             {/each}

@@ -9,7 +9,6 @@ import CartsTest from "../../components/Carts/CartsTest.svelte";
 
 export let data: PageData;
 
-export let form;
   const products: Product[] = data.products;
   let cart = get(cartItems);
   let  grossPrice = cart.reduce((total, item) => {
@@ -61,7 +60,7 @@ let selectedState :String
       <div class="flex flex-col xl:flex-row justify-center xl:justify-between space-y-6 xl:space-y-0 xl:space-x-6 w-full">
          
 
-          <div class="p-8 bg-gray-100 dark:bg-gray-800 flex flex-col lg:w-full xl:w-3/5">
+          <div class="p-8 bg-gray-100 dark:bg-gray-800 flex flex-col w-full lg:w-1/2">
               <button class="border border-transparent hover:border-blue-500 bg-blue-600 dark:bg-white dark:hover:bg-blue-900 dark:hover:border-blue-900 dark:text-blue-900 dark:hover:text-white hover:bg-white text-white hover:text-gray-900 flex flex-row justify-center items-center space-x-2 py-4 rounded w-full">
                   <div>
                      <img width="16" height="16" src="https://cdn-icons-png.flaticon.com/512/87/87401.png" alt="messenger" />

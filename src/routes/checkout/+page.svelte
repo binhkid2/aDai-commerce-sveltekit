@@ -5,8 +5,11 @@
   import { cartItems, addToCart, removeFromCart, DeleteCart } from '../../cart';
 import CartsTest from "../../components/Carts/CartsTest.svelte";
 	import { onMount } from "svelte";
-  /** @type {import('./$types').PageData} */
-  export let data: any;
+  import type { PageData, ActionData } from './$types';
+
+export let data: PageData;
+
+export let form;
   const products: Product[] = data.products;
   let cart = get(cartItems);
   let  grossPrice = cart.reduce((total, item) => {
@@ -83,25 +86,26 @@ let selectedState :String
                   <hr class="border w-full" />
               </div>
               <div class="form-control">
-                <form method="POST"  action="?/post">
+                <form method="POST"  action="?/checkout">
               <div class="mt-8">
                 <label  class="input-group input-group-vertical">
                   <span>Name</span>
-                  <input autocomplete="off"
+                  <input autocomplete="off" name="name"
                             required type="text" placeholder="Matthew Harvey" class="input input-bordered" />
                 </label>
                 <label class="input-group input-group-vertical py-2 lg:py-4">
                   <span>Phone Number</span>
-                  <input autocomplete="off"
+                  <input autocomplete="off" name="phone"
                             required type="text" placeholder="0123456789" class="input input-bordered" />
                 </label>
               </div>
 
+              <!-- svelte-ignore a11y-label-has-associated-control -->
               <label class="mt-8 text-base leading-4 text-gray-800 dark:text-gray-50">Andress details</label>
               <div class="mt-8">
                 <label class="input-group input-group-vertical pb-2 lg:pb-4">
                   <span>Street</span>
-                  <textarea autocomplete="off"
+                  <textarea autocomplete="off" name="address"
                             required placeholder="Example Road" class="input input-bordered" />
                 </label>
                 <!-- svelte-ignore a11y-label-has-associated-control -->
@@ -111,14 +115,15 @@ let selectedState :String
                 </label>
                 <label class="input-group input-group-vertical pb-2 lg:pb-4">
                   <span>Email (optional)</span>
-                  <input type="text" placeholder="yourEmail@gmail.com" class="input input-bordered" />
+                  <input type="email" placeholder="yourEmail@gmail.com" name="email" class="input input-bordered" />
                 </label>
                 <label class="input-group input-group-vertical pb-2 lg:pb-4">
                   <span>Note for Store (optional)</span>
                   <textarea  placeholder="I want something..." class="input input-bordered" />
                 </label>
               </div>
-              <button class="mt-8 border border-transparent hover:border-gray-300 dark:bg-white dark:hover:bg-gray-900 dark:text-gray-900 dark:hover:text-white dark:border-transparent bg-gray-900 hover:bg-white text-white hover:text-gray-900 flex justify-center items-center py-4 rounded w-full">
+              <button
+               class="mt-8 border border-transparent hover:border-gray-300 dark:bg-white dark:hover:bg-gray-900 dark:text-gray-900 dark:hover:text-white dark:border-transparent bg-gray-900 hover:bg-white text-white hover:text-gray-900 flex justify-center items-center py-4 rounded w-full">
                 <div>
                     <p class="text-base leading-4">Ship COD</p>
                 </div>

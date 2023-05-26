@@ -1,6 +1,6 @@
 <script lang="ts">
-   /** @type {import('./$types').PageData} */
- export let data :any;
+  import type { PageData } from './$types';
+  export let data: PageData;
  const products = data.products
  const  productMens  = data.productMens;
 	const  productWommens  = data.productWommens;
@@ -9,7 +9,7 @@
 	import Footer from "../components/Footer/Footer.svelte";
 	import NavBar from "../components/Navbar/Navbar.svelte";
   </script>
-  <NavBar {data} {products}  {productMens} {productUnisexs} {productWommens}/>
+  <NavBar {data}  {productMens} {productUnisexs} {productWommens}/>
 
   <slot />
   <Footer/>

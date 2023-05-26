@@ -16,12 +16,15 @@ export const actions = {
       const phone = data.get('phone');
       const address = data.get('address');
       const name = data.get('name');
-      
+      const state = data.get('state');
+      const street = data.get('street');
       const requestBody = {
         email: email,
         phone: phone,
         address: address,
-        name: name
+        name: name,
+        street:street,
+        state:state
       };
   
       const url = (`${env.ORDERS}`);

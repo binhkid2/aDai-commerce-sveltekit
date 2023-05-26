@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { get } from 'svelte/store';
 	import { cartItems, addToCart, removeFromCart, DeleteCart } from '../../cart';
+	import LazyImg from '$lib/Lazy/lazyImg.svelte';
 	export let product: Product 
 	let cart = get(cartItems); // [ { id: "1", quantity: 6 }, { id: "2", quantity: 3 } ]
 	// id: "1"
@@ -27,7 +28,11 @@
 	{#if cartProduct !== undefined}
 		
     <div class="grid grid-cols-3 shadow-lg ring-1 ring-slate-400 p-4 rounded-lg m-0">
-        <img src="{product.images[0]}" alt="{product.title}" class="w-60 m-auto" />
+       
+        <LazyImg
+        src="{product.images[0]}"
+        alt="{product.title}"
+        class="w-60 m-auto"  />
         <div>
             <div class="text-3xl m-auto">
                 <a href="/product/{product.id}" class="transition ease-in-out delay-15 duration-300">

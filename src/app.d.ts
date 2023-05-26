@@ -25,5 +25,6 @@ declare class CartItem {
 	totalPrice:number
 	
 }
+
 declare module 'simple-svelte-autocomplete'
 declare module 'svelte-carousel';

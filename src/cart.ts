@@ -15,6 +15,7 @@ export default cartItems;
 
 // [ { id: "1", quantity: 4 }, { id: "2", quantity: 1 } ] 
 
+
 // add to cart (add one)
 export const addToCart = (id: string,
 	totalPrice:number,price:number) => {

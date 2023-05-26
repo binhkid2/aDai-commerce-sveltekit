@@ -104,13 +104,13 @@ let selectedState :String
               <div class="mt-8">
                 <label class="input-group input-group-vertical pb-2 lg:pb-4">
                   <span>Street</span>
-                  <textarea autocomplete="off" name="address"
+                  <textarea autocomplete="off" name="street"
                             required placeholder="Example Road" class="input input-bordered" />
                 </label>
                 <!-- svelte-ignore a11y-label-has-associated-control -->
                 <label class="input-group input-group-vertical pb-2 lg:pb-4">
-                  <span>Town/City</span>
-                  <AutoComplete required={true} items="{state}" labelFieldName="name" bind:selectedItem="{selectedState}" />
+                  <span>State</span>
+                  <AutoComplete required={true} name="state" items="{state}" labelFieldName="name" bind:selectedItem="{selectedState}" />
                 </label>
                 <label class="input-group input-group-vertical pb-2 lg:pb-4">
                   <span>Email (optional)</span>
